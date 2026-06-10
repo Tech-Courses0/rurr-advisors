@@ -1,0 +1,89 @@
+---
+layout: base.njk
+metaTitle: "About — RURR Advisors"
+description: "About RURR Advisors — a SEBI Registered Investment Adviser providing fee-only, fiduciary financial planning and investment advisory. Registration details, principal officer, and philosophy."
+---
+<section class="page active" id="page-about">
+  <div class="page-head">
+    <div class="wrap">
+      <p class="crumb reveal">About the firm</p>
+      <h1 class="reveal">Independent advice, held to a fiduciary standard.</h1>
+      <p class="reveal">RURR Advisors is a SEBI Registered Investment Adviser built on a simple idea: advice is only trustworthy when the adviser has nothing to sell.</p>
+    </div>
+  </div>
+
+  <div class="section wrap">
+    <div class="split">
+      <div class="reveal">
+        <p class="eyebrow">Who we are</p>
+        <h2 style="font-size:clamp(1.9rem,4vw,2.6rem)">A practice, not a sales desk.</h2>
+      </div>
+      <div class="prose reveal">
+        <p>RURR Advisors provides fee-only financial planning and investment advisory services to individuals, families, and businesses in India. We are registered with the Securities and Exchange Board of India (SEBI) under the SEBI (Investment Advisers) Regulations, 2013.</p>
+        <p>Because we accept no commissions or referral incentives from any product manufacturer, our only source of revenue is the advisory fee paid by our clients. This structure removes the conflicts that affect commission-based distribution and keeps our incentives aligned with yours.</p>
+        <p>Our work is process-driven and documented. We do not predict markets, chase performance, or promise outcomes. We help you make sound, evidence-based decisions and stay the course.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mandatory registration details -->
+  <div class="section wrap" style="padding-top:0;">
+    <div class="section-head reveal">
+      <p class="eyebrow">Registration details</p>
+      <h2 style="font-size:clamp(1.8rem,3.6vw,2.4rem)">Our SEBI registration</h2>
+    </div>
+    <dl class="reg-grid reveal">
+      <div class="reg-cell"><dt>Registered Name</dt><dd>{{ site.legalName }}</dd></div>
+      <div class="reg-cell"><dt>Brand Name</dt><dd>{{ site.brandName }}</dd></div>
+      <div class="reg-cell"><dt>SEBI Registration Number</dt><dd class="mono">{{ site.regNo }}</dd></div>
+      <div class="reg-cell"><dt>Type of Registration</dt><dd>Investment Adviser — {{ site.regType }}</dd></div>
+      <div class="reg-cell"><dt>Registration Validity</dt><dd>{{ site.regValidity }}</dd></div>
+      <div class="reg-cell"><dt>Registered Address</dt><dd>{{ site.address.full }}</dd></div>
+    </dl>
+    <div class="note reveal" style="margin-top:22px;">
+      <strong>Note:</strong> Registration granted by SEBI and certification from NISM in no way guarantee the performance of the intermediary or provide any assurance of returns to investors.
+    </div>
+  </div>
+
+  <!-- Principal officer -->
+  <div class="section wrap" style="padding-top:0;">
+    <div class="section-head reveal">
+      <p class="eyebrow">Leadership</p>
+      <h2 style="font-size:clamp(1.8rem,3.6vw,2.4rem)">Principal Officer</h2>
+    </div>
+    <div class="split reveal">
+      <div>
+        <div class="sub-card">
+          <h4>{{ site.principalOfficer.name }}</h4>
+          <p>{{ site.principalOfficer.title }}</p>
+          <dl style="margin:16px 0 0;display:grid;gap:10px;">
+            <div class="cred-row" style="color:var(--text)"><dt style="color:var(--muted-2);font-family:var(--mono);font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;">Qualifications</dt><dd style="font-family:var(--mono);font-size:.85rem;text-align:right;">{{ site.principalOfficer.qualifications }}</dd></div>
+            <div class="cred-row" style="color:var(--text)"><dt style="color:var(--muted-2);font-family:var(--mono);font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;">NISM Certification</dt><dd style="font-family:var(--mono);font-size:.85rem;text-align:right;">{{ site.principalOfficer.nism }}</dd></div>
+            <div class="cred-row" style="color:var(--text)"><dt style="color:var(--muted-2);font-family:var(--mono);font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;">Experience</dt><dd style="font-family:var(--mono);font-size:.85rem;text-align:right;">{{ site.principalOfficer.experience }}</dd></div>
+          </dl>
+        </div>
+      </div>
+      <div class="prose">
+        <h3 style="margin-top:0">Qualifications &amp; experience</h3>
+        <p>[Brief professional biography placeholder.] The Principal Officer holds the qualifications and NISM certifications required under the SEBI (Investment Advisers) Regulations, 2013, and has over [15] years of experience in financial planning and investment advisory.</p>
+        <p>Replace this text with the officer's background, areas of focus, professional memberships, and any notable engagements — written in a measured, factual tone.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Philosophy -->
+  <div class="process section" style="background:var(--pine);">
+    <div class="wrap">
+      <div class="split">
+        <div class="reveal">
+          <p class="eyebrow on-dark">Our philosophy</p>
+          <h2 style="font-size:clamp(1.9rem,4vw,2.6rem);color:#fff">How we think about your money.</h2>
+        </div>
+        <div class="prose reveal">
+          <p style="color:#cdd6d2">We believe long-term outcomes come from sound structure and patient discipline — not prediction. Our investment philosophy rests on a few principles: define goals before products, control what can be controlled (costs, allocation, behaviour), diversify broadly, and review regularly without overreacting.</p>
+          <p style="color:#cdd6d2">We are deliberately conservative in what we promise. Markets carry risk, and we are honest about it. Our role is to help you take an appropriate amount of risk for your goals — and to stay invested through the noise.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

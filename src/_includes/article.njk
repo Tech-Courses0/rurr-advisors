@@ -1,0 +1,26 @@
+---
+layout: base.njk
+---
+<section class="page active" id="page-article">
+  <div class="page-head">
+    <div class="wrap">
+      <p class="crumb reveal"><a href="/resources/" style="color:inherit;text-decoration:none;">Resources</a> &nbsp;·&nbsp; {{ category }}</p>
+      <h1 class="reveal" style="max-width:24ch;">{{ title }}</h1>
+      <p class="reveal" style="font-family:var(--mono);font-size:.78rem;color:var(--sage);letter-spacing:.06em;text-transform:uppercase;margin-top:1rem;">{{ date | readableDate }} &nbsp;·&nbsp; {{ readtime }}</p>
+    </div>
+  </div>
+  <div class="section wrap">
+    <article class="prose reveal" style="max-width:74ch;margin:0 auto;">
+      {{ content | safe }}
+
+      <div class="note" style="margin-top:32px;">
+        <strong>Educational content only.</strong> This article is general information, not personalised investment advice or a recommendation to buy or sell any security. Investments are subject to market risks; past performance is not indicative of future results. Please read all related documents carefully and seek advice suited to your own circumstances under a signed advisory agreement.
+      </div>
+
+      <div style="margin-top:26px;display:flex;gap:12px;flex-wrap:wrap;">
+        <a class="btn btn-ghost" href="/resources/">← All resources</a>
+        <a class="btn btn-primary" href="/contact/">Talk to an adviser <span class="arr">→</span></a>
+      </div>
+    </article>
+  </div>
+</section>

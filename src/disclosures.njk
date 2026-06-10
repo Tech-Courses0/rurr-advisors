@@ -1,0 +1,141 @@
+---
+layout: base.njk
+metaTitle: "Disclosures — RURR Advisors"
+description: "Regulatory disclosures for RURR Advisors — SEBI registration details, Investor Charter, fee structure, and conflict-of-interest disclosure."
+---
+<section class="page active" id="page-disclosures">
+  <div class="page-head">
+    <div class="wrap">
+      <p class="crumb reveal">Regulatory disclosures</p>
+      <h1 class="reveal">Disclosures &amp; investor information.</h1>
+      <p class="reveal">A single hub for our SEBI registration details, Investor Charter, fee structure, and conflict-of-interest disclosures. Complaints data and the grievance desk are on the <a href="/grievances/" style="color:var(--brass-soft);text-decoration:underline;">Grievances page</a>; our <a href="/legal/mitc/" style="color:var(--brass-soft);text-decoration:underline;">Most Important Terms &amp; Conditions</a> are published separately.</p>
+    </div>
+  </div>
+
+  <!-- A. SEBI Registration -->
+  <div class="section wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow">A · SEBI registration details</p>
+      <h2 style="font-size:clamp(1.7rem,3.4vw,2.3rem)">Who we are, on record</h2>
+    </div>
+    <dl class="reg-grid reveal">
+      <div class="reg-cell"><dt>Name</dt><dd>{{ site.legalName }}</dd></div>
+      <div class="reg-cell"><dt>SEBI Registration Number</dt><dd class="mono">{{ site.regNo }}</dd></div>
+      <div class="reg-cell"><dt>Registration Type</dt><dd>Investment Adviser — {{ site.regType }}</dd></div>
+      <div class="reg-cell"><dt>Validity</dt><dd>{{ site.regValidity }}</dd></div>
+      <div class="reg-cell"><dt>Registered Address</dt><dd>{{ site.address.full }}</dd></div>
+      <div class="reg-cell"><dt>Contact Email</dt><dd class="mono">{{ site.email | mailto | safe }}</dd></div>
+      <div class="reg-cell"><dt>Phone Number</dt><dd class="mono">{{ site.phone | whatsapp | safe }}</dd></div>
+      <div class="reg-cell"><dt>BASL Membership</dt><dd class="mono">{{ site.baslNo }} (if applicable)</dd></div>
+    </dl>
+  </div>
+
+  <!-- B. Investor Charter -->
+  <div class="section wrap" style="padding-top:0;">
+    <div class="section-head reveal">
+      <p class="eyebrow">B · Investor Charter</p>
+      <h2 style="font-size:clamp(1.7rem,3.4vw,2.3rem)">Our commitment to you</h2>
+    </div>
+
+    <div class="charter-cols">
+      <div class="charter-box reveal">
+        <h3>Vision</h3>
+        <p style="color:var(--muted);font-size:.95rem;">To enable investors to make informed financial decisions through honest, competent, and conflict-free advice.</p>
+        <h3 style="margin-top:1.4rem;">Mission</h3>
+        <p style="color:var(--muted);font-size:.95rem;margin:0;">To provide professional, research-backed investment advice in the sole interest of our clients, with full transparency and the highest standards of conduct.</p>
+      </div>
+      <div class="charter-box reveal">
+        <h3>Services provided</h3>
+        <ul>
+          <li>Financial planning and goal-based advisory</li>
+          <li>Investment advice and asset allocation</li>
+          <li>Portfolio review and risk assessment</li>
+          <li>Periodic monitoring and reviews (where engaged)</li>
+        </ul>
+      </div>
+      <div class="charter-box reveal">
+        <h3>Investor rights</h3>
+        <ul>
+          <li>Receive advice that is suitable and in your best interest</li>
+          <li>Full disclosure of fees and any conflicts of interest</li>
+          <li>Confidentiality of your personal information</li>
+          <li>A clear written agreement and risk profiling</li>
+          <li>Timely and fair handling of grievances</li>
+        </ul>
+      </div>
+      <div class="charter-box reveal">
+        <h3>Investor responsibilities</h3>
+        <ul>
+          <li>Provide accurate and complete information</li>
+          <li>Read all documents and disclosures carefully</li>
+          <li>Understand the risks before acting on advice</li>
+          <li>Keep records of advice and transactions</li>
+          <li>Deal only through the registered entity</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="dos-donts reveal" style="margin-top:18px;">
+      <div class="dd-col dos">
+        <h4>Investor Do's</h4>
+        <ul>
+          <li>Verify our SEBI registration on the SEBI website</li>
+          <li>Insist on a written agreement and risk profile</li>
+          <li>Pay fees only to the registered entity's account</li>
+          <li>Ask questions until you fully understand the advice</li>
+        </ul>
+      </div>
+      <div class="dd-col donts">
+        <h4>Investor Don'ts</h4>
+        <ul>
+          <li>Don't act on tips promising assured or guaranteed returns</li>
+          <li>Don't share login credentials, OTPs, or passwords</li>
+          <li>Don't make payments to unverified personal accounts</li>
+          <li>Don't invest without understanding the risks involved</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="charter-box reveal" style="margin-top:18px;">
+      <h3>Grievance redressal</h3>
+      <p style="color:var(--muted);font-size:.95rem;">Raise your concern with our Compliance Officer at <span style="font-family:var(--mono);">{{ site.grievanceEmail | mailto("grievance") | safe }}</span>; if unresolved, escalate to SEBI via SCORES (<span style="font-family:var(--mono);">{{ site.scores | weblink | safe }}</span>) or the ODR portal (<span style="font-family:var(--mono);">{{ site.odr | weblink | safe }}</span>). You can raise a complaint, track its status, and view our monthly complaints data on the <a href="/grievances/" style="color:var(--brass);text-decoration:underline;">Grievances page</a>.</p>
+    </div>
+  </div>
+
+  <!-- C. Conflict disclosure -->
+  <div class="section wrap" style="padding-top:0;">
+    <div class="section-head reveal">
+      <p class="eyebrow">C · Conflict of interest</p>
+      <h2 style="font-size:clamp(1.7rem,3.4vw,2.3rem)">Conflict disclosure</h2>
+    </div>
+    <div class="note reveal">
+      <strong>We disclose all potential conflicts of interest and maintain transparency in advisory relationships.</strong> As a fee-only adviser, we receive no commissions, brokerage, or incentives from any product manufacturer or distributor. Where any actual or potential conflict arises, we will disclose it to you in writing before providing advice, and we will always act in your best interest.
+    </div>
+  </div>
+
+  <!-- D. Fee structure -->
+  <div class="section wrap" id="fees" style="padding-top:0;scroll-margin-top:90px;">
+    <div class="section-head reveal">
+      <p class="eyebrow">D · Fee structure</p>
+      <h2 style="font-size:clamp(1.7rem,3.4vw,2.3rem)">How we charge</h2>
+      <p class="lead" style="font-size:1.02rem;margin-top:1rem;">We are a fee-only adviser. Our fees are agreed in writing before any advice is given, and are charged strictly within the limits prescribed under the SEBI (Investment Advisers) Regulations, 2013.</p>
+    </div>
+
+    <div class="charter-cols reveal">
+      <div class="charter-box">
+        <h3>Assets under Advice (AUA) mode</h3>
+        <p style="color:var(--muted);font-size:.95rem;">Up to <strong>{{ site.fees.auaCap }} of Assets under Advice per annum</strong>, per family, across all services. AUA is disclosed to you at the time of the agreement.</p>
+      </div>
+      <div class="charter-box">
+        <h3>Fixed-fee mode</h3>
+        <p style="color:var(--muted);font-size:.95rem;">Up to <strong>{{ site.fees.fixedCap }} per annum</strong>, per family, across all services. You may choose either mode, but not both at the same time.</p>
+      </div>
+    </div>
+
+    <div class="note reveal" style="margin-top:18px;">
+      <strong>Important:</strong> Fees are exclusive of applicable taxes (e.g. GST). Advance fees, if any, are charged only as permitted by SEBI. We do not accept any commission, brokerage, or incentive linked to investment products. The exact fee, billing frequency, and refund terms are set out in your signed advisory agreement.
+      <br><br>
+      <em>The amounts shown above are placeholders — confirm the current SEBI-prescribed fee caps and your firm's actual fee schedule before publishing.</em>
+    </div>
+  </div>
+</section>

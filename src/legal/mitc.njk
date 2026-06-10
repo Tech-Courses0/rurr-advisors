@@ -1,0 +1,53 @@
+---
+layout: base.njk
+metaTitle: "Most Important Terms & Conditions (MITC) — RURR Advisors"
+description: "Most Important Terms and Conditions (MITC) for advisory clients of RURR Advisors, a SEBI Registered Investment Adviser."
+---
+<section class="page active" id="page-mitc">
+  <div class="page-head">
+    <div class="wrap">
+      <p class="crumb reveal">Regulatory</p>
+      <h1 class="reveal">Most Important Terms &amp; Conditions</h1>
+      <p class="reveal">A plain-language summary of the key terms of our advisory relationship, as required of SEBI Registered Investment Advisers. This summary does not replace your signed advisory agreement.</p>
+    </div>
+  </div>
+  <div class="section wrap">
+    <div class="prose reveal" style="max-width:80ch;margin:0 auto;">
+      <h2>1. Identity of the Investment Adviser</h2>
+      <p>{{ site.legalName }} ("the IA"), brand name {{ site.brandName }}, is registered with SEBI as an Investment Adviser ({{ site.regType }}) under Registration No. {{ site.regNo }}. Registered address: {{ site.address.full }}. Contact: {{ site.email | mailto | safe }} · {{ site.phone | whatsapp | safe }}.</p>
+
+      <h2>2. Nature of services</h2>
+      <p>The IA provides investment advice and financial planning only. The IA does <strong>not</strong> execute transactions, does not hold or have access to your funds or securities, and does not seek any power of attorney over your accounts. All decisions to act on advice are yours.</p>
+
+      <h2>3. Fees</h2>
+      <ul>
+        <li>Fees are charged on a fee-only basis, within the limits prescribed by SEBI: up to {{ site.fees.auaCap }} of Assets under Advice per annum, or up to {{ site.fees.fixedCap }} per annum under the fixed-fee mode, per family.</li>
+        <li>The exact fee, mode, and billing frequency are set out in your signed advisory agreement and are exclusive of applicable taxes.</li>
+        <li>The IA receives no commission, brokerage, or incentive from any product manufacturer or distributor.</li>
+      </ul>
+
+      <h2>4. No assured returns</h2>
+      <p>The IA does not promise or guarantee any returns. Investments are subject to market risk, including possible loss of principal. SEBI registration and NISM certification do not guarantee performance or assure returns.</p>
+
+      <h2>5. Risk profiling &amp; suitability</h2>
+      <p>Advice is provided only after risk profiling and an assessment of suitability. You agree to provide accurate, complete information and to inform the IA of material changes to your circumstances.</p>
+
+      <h2>6. Conflicts of interest</h2>
+      <p>The IA maintains an arms-length, fee-only model. Any actual or potential conflict of interest will be disclosed to you in writing before advice is given. See our <a href="/disclosures/" style="color:var(--brass);text-decoration:underline;">Disclosures</a>.</p>
+
+      <h2>7. Confidentiality &amp; data protection</h2>
+      <p>Your information is kept confidential and processed in line with our <a href="/legal/privacy/" style="color:var(--brass);text-decoration:underline;">Privacy Policy</a> and applicable data-protection law. It is not shared except as required for the service or by law.</p>
+
+      <h2>8. Grievance redressal</h2>
+      <p>Raise complaints with our Compliance Officer at {{ site.grievanceEmail | mailto("grievance") | safe }}. If unresolved, escalate to SEBI via SCORES ({{ site.scores | weblink | safe }}) or the ODR portal ({{ site.odr | weblink | safe }}). You can raise and track complaints on our <a href="/grievances/" style="color:var(--brass);text-decoration:underline;">Grievances page</a>.</p>
+
+      <h2>9. Termination</h2>
+      <p>Either party may terminate the advisory relationship per the notice terms in the signed agreement. On termination, fees are payable for services rendered up to that date, and any refund of pre-paid fees is handled as per the agreement.</p>
+
+      <h2>10. Death or disability of the IA</h2>
+      <p>In the event of the death or incapacity of the individual adviser / principal officer, arrangements for handover or orderly winding-down of the advisory relationship will be made in accordance with SEBI requirements and communicated to you.</p>
+
+      <div class="note" style="margin-top:24px;"><strong>Note:</strong> This is a template summary. Replace it with the exact "Most Important Terms and Conditions" wording prescribed in the prevailing SEBI circular for Investment Advisers, and have it reviewed by your compliance/legal advisers before publishing.</div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,16 @@
+{
+  "name": "meridian-advisory-website",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Static website for Meridian Advisory, a SEBI Registered Investment Adviser. Built with Eleventy.",
+  "scripts": {
+    "start": "eleventy --serve",
+    "build": "eleventy",
+    "clean": "rm -rf _site",
+    "gen:assets": "node scripts/gen-assets.mjs"
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "^3.0.0",
+    "sharp": "^0.33.5"
+  }
+}

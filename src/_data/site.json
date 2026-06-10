@@ -1,0 +1,61 @@
+{
+  "brandName": "RURR Advisors",
+  "markLetter": "R",
+  "legalName": "Rishu Goyal (Proprietor — RURR Advisors)",
+  "tagline": "SEBI Registered Investment Adviser",
+  "description": "RURR Advisors is a SEBI Registered Investment Adviser offering fee-only, fiduciary financial planning and investment advisory. Conflict-free advice, transparent fees.",
+  "url": "https://rurradvisors.in",
+
+  "regNo": "INA000019673",
+  "regType": "Individual",
+  "regValidity": "Nov 08, 2024 – Perpetual",
+  "baslNo": "[ASLXXXXX]",
+
+  "email": "rurradvisors@gmail.com",
+  "grievanceEmail": "rurradvisors@gmail.com",
+  "privacyEmail": "rurradvisors@gmail.com",
+  "phone": "+917715826136",
+  "hours": "Mon–Fri, 10:00–18:00 IST",
+
+  "address": {
+    "line1": "603, Tower 1, Parsvnath Srishti Society, Sector 93A",
+    "line2": "Noida, Uttar Pradesh – 201301, India",
+    "full": "603, Tower 1, Parsvnath Srishti Society, Sector 93A, Noida, Uttar Pradesh – 201301, India"
+  },
+
+  "complianceOfficer": {
+    "name": "Rishu Goyal",
+    "email": "rurradvisors@gmail.com",
+    "phone": "+917715826136"
+  },
+
+  "principalOfficer": {
+    "name": "Rishu Goyal",
+    "title": "Proprietor & Investment Adviser",
+    "qualifications": "[CFP / CFA / MBA]",
+    "nism": "[XA & XB]",
+    "experience": "[__ years]"
+  },
+
+  "fees": {
+    "fixedCap": "[₹1,25,000]",
+    "auaCap": "2.5%"
+  },
+
+  "scores": "scores.sebi.gov.in",
+  "odr": "smartodr.in",
+
+  "nav": [
+    { "label": "Home", "url": "/" },
+    { "label": "About", "url": "/about/" },
+    { "label": "Services", "url": "/services/" },
+    { "label": "Resources", "url": "/resources/" },
+    { "label": "Disclosures", "url": "/disclosures/" },
+    { "label": "Contact", "url": "/contact/" },
+    { "label": "Grievances", "url": "/grievances/" }
+  ],
+
+  "forms": {
+    "endpoint": "https://script.google.com/macros/s/AKfycbyeD-CY-C5xzfk7ZhJ6NP7SomAF4VdAw6bXnJ40YWEFSTYLM3mOCSp4sDMoHl-hSqpa/exec"
+  }
+}

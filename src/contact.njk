@@ -1,0 +1,60 @@
+---
+layout: base.njk
+metaTitle: "Contact — RURR Advisors"
+description: "Contact RURR Advisors, a SEBI Registered Investment Adviser. Arrange a no-obligation consultation."
+---
+<section class="page active" id="page-contact">
+  <div class="page-head">
+    <div class="wrap">
+      <p class="crumb reveal">Contact</p>
+      <h1 class="reveal">Start a conversation.</h1>
+      <p class="reveal">Tell us a little about your situation and what you're looking for. We'll get back to you to arrange a no-obligation consultation.</p>
+    </div>
+  </div>
+
+  <div class="section wrap">
+    <div class="contact-grid">
+      <div class="reveal">
+        <p class="eyebrow">Enquiry form</p>
+        <h2 style="font-size:clamp(1.7rem,3.4vw,2.2rem);margin-bottom:24px;">How can we help?</h2>
+        <form id="contactForm" novalidate>
+          <div class="field"><label for="cName">Full name</label><input id="cName" name="name" type="text" placeholder="Your name" autocomplete="name" required /></div>
+          <div class="field"><label for="cEmail">Email</label><input id="cEmail" name="email" type="email" placeholder="you@example.com" autocomplete="email" required /></div>
+          <div class="field"><label for="cPhone">Phone</label><input id="cPhone" name="phone" type="tel" inputmode="tel" placeholder="+919876543210" autocomplete="tel" required /></div>
+          <div class="field">
+            <label for="cInterest">I'm interested in</label>
+            <select id="cInterest" name="interest">
+              <option>Financial Planning</option>
+              <option>Investment Advisory</option>
+              <option>Portfolio Review</option>
+              <option>Goal-Based Planning</option>
+              <option>Something else</option>
+            </select>
+          </div>
+          <div class="field"><label for="cMsg">Message</label><textarea id="cMsg" name="message" placeholder="A few lines about what you're looking for"></textarea></div>
+          <button class="btn btn-primary" id="cSubmit" type="submit">Send enquiry <span class="arr">→</span></button>
+          <p class="form-note">Your details are sent securely to our advisory team. We will never ask for passwords, OTPs, or trading credentials.</p>
+          <div class="form-success" id="cSuccess">Thanks — your enquiry has been received. We'll be in touch shortly.</div>
+          <div class="form-error" id="cError">Sorry, we couldn't send your enquiry just now. Please try again, or email us at {{ site.email | mailto | safe }}.</div>
+        </form>
+      </div>
+
+      <aside>
+        <div class="contact-info reveal">
+          <h3>Reach us</h3>
+          <p style="color:#b9c6c1;font-size:.92rem;">SEBI Registered Investment Adviser · Reg. No. {{ site.regNo }}</p>
+          <div class="info-row"><div class="l">Office address</div><div class="d">{{ site.address.line1 }},<br>{{ site.address.line2 }}</div></div>
+          <div class="info-row"><div class="l">Phone</div><div class="d" style="font-family:var(--mono);">{{ site.phone | whatsapp | safe }}</div></div>
+          <div class="info-row"><div class="l">Email</div><div class="d" style="font-family:var(--mono);">{{ site.email | mailto | safe }}</div></div>
+          <div class="info-row"><div class="l">Hours</div><div class="d">{{ site.hours }}</div></div>
+
+          <h3 style="margin-top:30px;">Grievance redressal</h3>
+          <p style="color:#b9c6c1;font-size:.92rem;">For complaints, contact our Compliance Officer — or raise and track a ticket on the <a href="/grievances/" style="color:var(--brass-soft);text-decoration:underline;">Grievances page</a>.</p>
+          <div class="info-row"><div class="l">Compliance Officer</div><div class="d">{{ site.complianceOfficer.name }}</div></div>
+          <div class="info-row"><div class="l">Email</div><div class="d" style="font-family:var(--mono);">{{ site.complianceOfficer.email | mailto("grievance") | safe }}</div></div>
+          <div class="info-row"><div class="l">Escalation to SEBI</div><div class="d" style="font-size:.9rem;color:#cdd6d2;">SCORES — <span style="font-family:var(--mono);">{{ site.scores | weblink | safe }}</span> · ODR — <span style="font-family:var(--mono);">{{ site.odr | weblink | safe }}</span></div></div>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>

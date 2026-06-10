@@ -1,0 +1,65 @@
+---
+layout: base.njk
+metaTitle: "Resources — RURR Advisors"
+description: "Plain-English guides to mutual funds, fees, tax, asset allocation and choosing an adviser in India — from RURR Advisors, a SEBI Registered Investment Adviser."
+---
+<section class="page active" id="page-resources">
+  <div class="page-head">
+    <div class="wrap">
+      <p class="crumb reveal">Resources</p>
+      <h1 class="reveal">Investing, explained without the jargon.</h1>
+      <p class="reveal">Short, specific guides on the things that actually move the needle — fees, asset allocation, tax, and how to tell genuine advice from a sales pitch. Educational only; not personalised advice.</p>
+    </div>
+  </div>
+
+  <div class="section wrap">
+    <div class="res-controls reveal">
+      <div class="res-sorts">
+        <label>Reading time
+          <select id="readFilter">
+            <option value="any">Any length</option>
+            <option value="short">Quick (≤ 5 min)</option>
+            <option value="long">In-depth (6+ min)</option>
+          </select>
+        </label>
+        <label>Sort by date
+          <select id="dateSort">
+            <option value="newest">Newest first</option>
+            <option value="oldest">Oldest first</option>
+          </select>
+        </label>
+        <label>Per page
+          <select id="perPage">
+            <option value="6">6</option>
+            <option value="9" selected>9</option>
+            <option value="12">12</option>
+            <option value="24">24</option>
+            <option value="all">All</option>
+          </select>
+        </label>
+      </div>
+      <div class="filter-chips" id="topicChips" role="group" aria-label="Filter by topic">
+        <button type="button" class="chip is-active" data-topic="all">All topics</button>
+        {%- for cat in collections.article | topics %}
+        <button type="button" class="chip" data-topic="{{ cat }}">{{ cat }}</button>
+        {%- endfor %}
+      </div>
+    </div>
+
+    <div class="cards" id="resGrid">
+      {%- for post in collections.article | reverse %}
+      <a class="card res-card" href="{{ post.url }}"
+         data-category="{{ post.data.category }}"
+         data-ts="{{ post.data.date | epoch }}"
+         data-minutes="{{ post.data.readtime | replace(' min read', '') }}">
+        <p class="num">{{ post.data.category }}</p>
+        <h3>{{ post.data.title }}</h3>
+        <p>{{ post.data.summary }}</p>
+        <p class="card-meta">{{ post.data.date | readableDate }} &nbsp;·&nbsp; {{ post.data.readtime }}</p>
+      </a>
+      {%- endfor %}
+    </div>
+    <p class="res-empty" id="resEmpty">No articles match those filters. <button type="button" class="linkish" id="resReset">Clear filters</button></p>
+    <nav class="res-pager" id="resPager" aria-label="Resource pages"></nav>
+  </div>
+</section>

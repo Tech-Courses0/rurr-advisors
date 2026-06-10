@@ -1,0 +1,154 @@
+{%- set pageTitle = metaTitle or (title + " — " + site.brandName) -%}
+{%- set pageDesc = description or site.description -%}
+{%- set pageUrl = site.url + page.url -%}
+{%- set ld = {
+  "@context": "https://schema.org",
+  "@type": "FinancialService",
+  "name": site.legalName,
+  "alternateName": site.brandName,
+  "url": site.url,
+  "image": site.url + "/og-image.png",
+  "telephone": site.phone,
+  "email": site.email,
+  "description": site.description,
+  "areaServed": "IN",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": site.address.line1,
+    "addressLocality": site.address.line2,
+    "addressCountry": "IN"
+  }
+} -%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>{{ pageTitle }}</title>
+<meta name="description" content="{{ pageDesc }}" />
+<link rel="canonical" href="{{ pageUrl }}" />
+<meta name="robots" content="{% if noindex %}noindex, follow{% else %}index, follow{% endif %}" />
+
+<meta property="og:title" content="{{ pageTitle }}" />
+<meta property="og:description" content="{{ pageDesc }}" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="{{ pageUrl }}" />
+<meta property="og:site_name" content="{{ site.brandName }}" />
+<meta property="og:image" content="{{ site.url }}/og-image.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="{{ pageTitle }}" />
+<meta name="twitter:description" content="{{ pageDesc }}" />
+<meta name="twitter:image" content="{{ site.url }}/og-image.png" />
+
+<link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+<link rel="icon" href="/favicon.png" sizes="32x32" type="image/png" />
+<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Hanken+Grotesk:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="/css/styles.css" />
+
+<script type="application/ld+json">{{ ld | dump | safe }}</script>
+<script>window.SITE={endpoint:"{{ site.forms.endpoint }}"};</script>
+<script src="/js/main.js" defer></script>
+</head>
+<body>
+
+<div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
+<header class="site-header" id="header">
+  <div class="wrap nav">
+    <a class="brand" href="/" aria-label="{{ site.brandName }} home">
+      <span class="mark">{{ site.markLetter }}</span>
+      <span>{{ site.brandName }}<small>{{ site.tagline }}</small></span>
+    </a>
+    <nav aria-label="Primary">
+      <ul class="nav-links" id="navLinks">
+        {%- for item in site.nav %}
+        <li><a href="{{ item.url }}"{% if item.url == page.url %} class="active" aria-current="page"{% endif %}>{{ item.label }}</a></li>
+        {%- endfor %}
+      </ul>
+    </nav>
+    <div class="nav-cta">
+      <a class="btn btn-primary" href="/contact/">Schedule a consultation <span class="arr">→</span></a>
+      <button class="menu-toggle" id="menuToggle" aria-label="Open menu" aria-expanded="false">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div class="mobile-menu" id="mobileMenu">
+  <div class="mm-top">
+    <span class="brand"><span class="mark">{{ site.markLetter }}</span><span>{{ site.brandName }}</span></span>
+    <button class="mm-close" id="mmClose" aria-label="Close menu">
+      <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M18 6 6 18M6 6l12 12"/></svg>
+    </button>
+  </div>
+  <nav class="mm-links" id="mmLinks" aria-label="Mobile">
+    {%- for item in site.nav %}
+    <a href="{{ item.url }}"{% if item.url == page.url %} class="active" aria-current="page"{% endif %}>{{ item.label }}</a>
+    {%- endfor %}
+  </nav>
+  <div class="mm-cta"><a class="btn btn-primary" href="/contact/">Schedule a consultation →</a></div>
+</div>
+
+<main id="main">
+{{ content | safe }}
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="foot-top">
+      <div class="foot-brand">
+        <span class="brand"><span class="mark">{{ site.markLetter }}</span><span>{{ site.brandName }}</span></span>
+        <p class="foot-status">{{ site.tagline }}</p>
+        <p class="foot-reg">Registration No: {{ site.regNo }}</p>
+        <p class="foot-addr">
+          <strong style="color:#cdd6d2;font-weight:600;">Registered Address</strong><br>
+          {{ site.address.line1 }},<br>{{ site.address.line2 }}<br><br>
+          Email: <span style="font-family:var(--mono)">{{ site.email | mailto | safe }}</span><br>
+          Phone: <span style="font-family:var(--mono)">{{ site.phone | whatsapp | safe }}</span>
+        </p>
+      </div>
+      <div class="foot-col">
+        <h4>Quick links</h4>
+        <ul>
+          <li><a href="/disclosures/">Investor Charter</a></li>
+          <li><a href="/grievances/">Complaints Status</a></li>
+          <li><a href="/legal/mitc/">Most Important T&amp;C</a></li>
+          <li><a href="/legal/disclaimer/">Disclaimer</a></li>
+          <li><a href="/legal/privacy/">Privacy Policy</a></li>
+          <li><a href="/legal/terms/">Terms &amp; Conditions</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="/about/">About</a></li>
+          <li><a href="/services/">Services</a></li>
+          <li><a href="/disclosures/">Disclosures</a></li>
+          <li><a href="/contact/">Contact</a></li>
+          <li><a href="/grievances/">Grievances</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="foot-disclaimer">
+      Investments in securities market are subject to market risks; read all the related documents carefully before investing. Registration granted by SEBI and certification from NISM in no way guarantee the performance of the intermediary or provide any assurance of returns to investors. We do not offer or guarantee any returns on investments. Standard warning: "Investment in securities market are subject to market risks. Read all the related documents carefully before investing."
+    </div>
+
+    <div class="foot-bottom">
+      <p>© <span id="year"></span> {{ site.legalName }}. All rights reserved.</p>
+      <span class="scores-pill">
+        <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2 4 6v6c0 4.5 3.4 7.6 8 9 4.6-1.4 8-4.5 8-9V6z"/></svg>
+        Grievances: SEBI SCORES · {{ site.scores | weblink | safe }}
+      </span>
+    </div>
+  </div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,172 @@
+---
+layout: base.njk
+metaTitle: "RURR Advisors — SEBI Registered Investment Adviser"
+description: "RURR Advisors is a SEBI Registered Investment Adviser offering fee-only, fiduciary financial planning and investment advisory. Conflict-free advice, transparent fees."
+---
+<section class="page active" id="page-home">
+  <!-- HERO -->
+  <div class="hero">
+    <div class="wrap hero-inner">
+      <div>
+        <p class="eyebrow on-dark reveal" style="--d:0">SEBI Registered Investment Adviser</p>
+        <h1 class="reveal" style="--d:1">Advice you can <em>hold to account.</em></h1>
+        <p class="lead reveal" style="--d:2">RURR Advisors is a fee-only, fiduciary investment adviser. We are paid by you, not by the products we recommend — so our guidance stays aligned with your goals.</p>
+        <div class="hero-actions reveal" style="--d:3">
+          <a class="btn btn-primary" href="/contact/">Schedule a consultation <span class="arr">→</span></a>
+          <a class="btn btn-ghost on-dark" href="/services/">Explore services</a>
+        </div>
+        <p class="hero-note reveal" style="--d:4">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2 4 6v6c0 4.5 3.4 7.6 8 9 4.6-1.4 8-4.5 8-9V6z"/></svg>
+          We do not promise or guarantee returns. Investments are subject to market risks.
+        </p>
+      </div>
+
+      <!-- SEBI credential card — signature element -->
+      <div class="reveal reveal-right cred-wrap" style="--d:2">
+        <aside class="credential float" aria-label="SEBI registration credential">
+          <div class="cred-top">
+            <div>
+              <p class="cred-label">Registered with SEBI</p>
+              <p class="cred-title">Investment Adviser</p>
+            </div>
+            <div class="cred-seal">SEBI<br>RIA</div>
+          </div>
+          <dl class="cred-rows">
+            <div class="cred-row"><dt>Registration No.</dt><dd>{{ site.regNo }}</dd></div>
+            <div class="cred-row"><dt>Type</dt><dd>{{ site.regType }}</dd></div>
+            <div class="cred-row"><dt>Validity</dt><dd>Perpetual</dd></div>
+            <div class="cred-row"><dt>Model</dt><dd>Fee-only</dd></div>
+          </dl>
+          <p class="cred-foot">Registration with SEBI does not guarantee the performance of the adviser or assure any returns to investors. [Placeholder details — replace with your firm's actuals.]</p>
+        </aside>
+      </div>
+    </div>
+    <div class="scroll-cue" aria-hidden="true">
+      Scroll
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 9l6 6 6-6"/></svg>
+    </div>
+  </div>
+
+  <!-- TRUST STRIP -->
+  <div class="trust-strip">
+    <div class="wrap">
+      <div class="trust-grid">
+        <div class="trust-cell reveal"><div class="k">SEBI</div><div class="v">Registered Investment Adviser, Reg. No. {{ site.regNo }}</div></div>
+        <div class="trust-cell reveal"><div class="k"><span data-count="15">0</span>+ yrs</div><div class="v">Combined advisory experience across market cycles</div></div>
+        <div class="trust-cell reveal"><div class="k">Fee-only</div><div class="v">No commissions, no product incentives — ever</div></div>
+        <div class="trust-cell reveal"><div class="k">Fiduciary</div><div class="v">A documented duty to act in your best interest</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TRUST / APPROACH -->
+  <div class="section wrap">
+    <div class="split">
+      <div class="reveal">
+        <p class="eyebrow">Why clients trust us</p>
+        <h2 style="font-size:clamp(2rem,4.2vw,2.9rem)">A standard of care, written down.</h2>
+        <p class="lead" style="margin-top:1.2rem">As a SEBI Registered Investment Adviser, we operate under a fiduciary standard. Our recommendations are research-backed, documented, and built around what you are trying to achieve.</p>
+      </div>
+      <ul class="feature-list reveal">
+        <li>
+          <svg class="fi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2 4 6v6c0 4.5 3.4 7.6 8 9 4.6-1.4 8-4.5 8-9V6z"/><path d="m9 12 2 2 4-4"/></svg>
+          <div><h3>SEBI registered &amp; accountable</h3><p>Registered under the SEBI (Investment Advisers) Regulations, 2013, with full disclosures published on this site.</p></div>
+        </li>
+        <li>
+          <svg class="fi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 3v18h18"/><path d="m7 14 3-3 3 3 5-6"/></svg>
+          <div><h3>Experience across cycles</h3><p>Our team has guided households and businesses through varied market conditions — without selling them products.</p></div>
+        </li>
+        <li>
+          <svg class="fi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg>
+          <div><h3>An ethical advisory approach</h3><p>Clear conflict-of-interest disclosures and a client-first philosophy guide every conversation we have.</p></div>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- SERVICES OVERVIEW -->
+  <div class="section section--tight wrap" style="padding-top:0;">
+    <div class="section-head reveal">
+      <p class="eyebrow">What we do</p>
+      <h2>Advisory services, structured around your goals.</h2>
+    </div>
+    <div class="cards">
+      <article class="card reveal">
+        <div class="card-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 11H5a2 2 0 0 0-2 2v6h6m0-8V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v6m-6 0h6m0 0h4a2 2 0 0 1 2 2v6h-6m0-8v8"/></svg></div>
+        <p class="num">01</p>
+        <h3>Financial Planning</h3>
+        <p>A written plan covering cash flow, goals, protection, and retirement — your complete financial picture in one place.</p>
+      </article>
+      <article class="card reveal">
+        <div class="card-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-3 3"/></svg></div>
+        <p class="num">02</p>
+        <h3>Investment Advisory</h3>
+        <p>Independent, research-backed recommendations on asset allocation, mutual funds, and portfolio strategy.</p>
+      </article>
+      <article class="card reveal">
+        <div class="card-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg></div>
+        <p class="num">03</p>
+        <h3>Portfolio Review</h3>
+        <p>A clear-eyed analysis of what you already hold, with risk assessment and practical optimisation suggestions.</p>
+      </article>
+      <article class="card reveal">
+        <div class="card-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><path d="M12 3v9l6 3"/></svg></div>
+        <p class="num">04</p>
+        <h3>Asset Allocation</h3>
+        <p>A disciplined allocation framework matched to your risk profile, time horizon, and liquidity needs.</p>
+      </article>
+      <article class="card reveal">
+        <div class="card-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="1"/><path d="M12 7v2m0 6v2m5-5h-2M9 12H7"/></svg></div>
+        <p class="num">05</p>
+        <h3>Goal-Based Planning</h3>
+        <p>Funding plans for the things that matter — education, a home, retirement — tracked and reviewed over time.</p>
+      </article>
+      <article class="card reveal" style="background:var(--ink);color:var(--paper-dark-text);border-color:var(--ink);display:flex;flex-direction:column;justify-content:center;">
+        <h3 style="color:#fff">Not sure where to start?</h3>
+        <p style="color:#b9c6c1">Begin with a no-obligation conversation about your situation and what you're trying to achieve.</p>
+        <a class="btn btn-ghost on-dark" href="/contact/" style="margin-top:14px;align-self:flex-start;">Talk to an adviser →</a>
+      </article>
+    </div>
+  </div>
+
+  <!-- PROCESS -->
+  <div class="process section">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow on-dark">How we work</p>
+        <h2>A clear, four-step engagement.</h2>
+      </div>
+      <div class="steps">
+        <div class="step reveal"><p class="n">Step 01</p><h3>Understand your goals</h3><p>We start by listening — your priorities, obligations, and what financial success looks like to you.</p></div>
+        <div class="step reveal"><p class="n">Step 02</p><h3>Risk profiling</h3><p>A structured assessment of your capacity and willingness to take risk, documented for the record.</p></div>
+        <div class="step reveal"><p class="n">Step 03</p><h3>Personalised advisory</h3><p>A written set of recommendations tailored to your plan — explained in plain language, never sold.</p></div>
+        <div class="step reveal"><p class="n">Step 04</p><h3>Periodic review</h3><p>Scheduled reviews to keep your plan aligned as markets, goals, and life circumstances change.</p></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- WHY CHOOSE US -->
+  <div class="section wrap">
+    <div class="section-head center reveal">
+      <p class="eyebrow center">The difference</p>
+      <h2>Built to put your interests first.</h2>
+    </div>
+    <div class="cards">
+      <article class="card reveal"><h3>Fiduciary approach</h3><p>A legal and ethical duty to recommend what's right for you — not what pays us more.</p></article>
+      <article class="card reveal"><h3>Transparent fees</h3><p>You always know what you pay and why. No bundled costs, no surprises, no hidden charges.</p></article>
+      <article class="card reveal"><h3>Research-backed advice</h3><p>Recommendations grounded in evidence and process, not market predictions or hot tips.</p></article>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div class="section wrap" style="padding-top:0;">
+    <div class="cta-band reveal">
+      <h2>Let's build a plan worth keeping.</h2>
+      <p>Book a no-obligation conversation with a SEBI Registered Investment Adviser. We'll talk through your goals and how we can help.</p>
+      <div class="hero-actions" style="justify-content:center;">
+        <a class="btn btn-primary" href="/contact/">Schedule a consultation</a>
+        <a class="btn btn-ghost" href="/services/">See all services</a>
+      </div>
+    </div>
+  </div>
+</section>
