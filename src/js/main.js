@@ -1,9 +1,9 @@
-(function(){
-  "use strict";
+ //   (function(){
+            "use strict";
 
-  var ENDPOINT = (window.SITE && window.SITE.endpoint) || "";
-  var ENDPOINT_READY = !!ENDPOINT && ENDPOINT.indexOf("PASTE_") === -1;
-  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+ // var ENDPOINT = (window.SITE && window.SITE.endpoint) || "";
+ // var ENDPOINT_READY = !!ENDPOINT && ENDPOINT.indexOf("PASTE_") === -1;
+ // var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   /* POST helper — text/plain keeps this a "simple" request so the browser
      skips the CORS preflight that the Apps Script web app can't answer.
