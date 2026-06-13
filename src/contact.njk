@@ -42,17 +42,17 @@ description: "Contact RURR Advisors, a SEBI Registered Investment Adviser. Arran
       <aside>
         <div class="contact-info reveal">
           <h3>Reach us</h3>
-          <p style="color:#b9c6c1;font-size:.92rem;">SEBI Registered Investment Adviser · Reg. No. {{ site.regNo }}</p>
+          <p style="color:#b7c2dd;font-size:.92rem;">SEBI Registered Investment Adviser · Reg. No. {{ site.regNo }}</p>
           <div class="info-row"><div class="l">Office address</div><div class="d">{{ site.address.line1 }},<br>{{ site.address.line2 }}</div></div>
           <div class="info-row"><div class="l">Phone</div><div class="d" style="font-family:var(--mono);">{{ site.phone | whatsapp | safe }}</div></div>
           <div class="info-row"><div class="l">Email</div><div class="d" style="font-family:var(--mono);">{{ site.email | mailto | safe }}</div></div>
           <div class="info-row"><div class="l">Hours</div><div class="d">{{ site.hours }}</div></div>
 
           <h3 style="margin-top:30px;">Grievance redressal</h3>
-          <p style="color:#b9c6c1;font-size:.92rem;">For complaints, contact our Compliance Officer — or raise and track a ticket on the <a href="/grievances/" style="color:var(--brass-soft);text-decoration:underline;">Grievances page</a>.</p>
+          <p style="color:#b7c2dd;font-size:.92rem;">For complaints, contact our Compliance Officer — or raise and track a ticket on the <a href="/grievances/" style="color:var(--brass-soft);text-decoration:underline;">Grievances page</a>.</p>
           <div class="info-row"><div class="l">Compliance Officer</div><div class="d">{{ site.complianceOfficer.name }}</div></div>
           <div class="info-row"><div class="l">Email</div><div class="d" style="font-family:var(--mono);">{{ site.complianceOfficer.email | mailto("grievance") | safe }}</div></div>
-          <div class="info-row"><div class="l">Escalation to SEBI</div><div class="d" style="font-size:.9rem;color:#cdd6d2;">SCORES — <span style="font-family:var(--mono);">{{ site.scores | weblink | safe }}</span> · ODR — <span style="font-family:var(--mono);">{{ site.odr | weblink | safe }}</span></div></div>
+          <div class="info-row"><div class="l">Escalation to SEBI</div><div class="d" style="font-size:.9rem;color:#c4cee3;">SCORES — <span style="font-family:var(--mono);">{{ site.scores | weblink | safe }}</span> · ODR — <span style="font-family:var(--mono);">{{ site.odr | weblink | safe }}</span></div></div>
         </div>
       </aside>
     </div>

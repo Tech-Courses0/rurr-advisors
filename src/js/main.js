@@ -507,6 +507,88 @@
     apply();
   }
 
+  /* ============================================================
+     CALCULATORS — SIP (step-up + partial withdrawal) and
+     Return (lumpsum + SIP across varying return scenarios).
+     Illustrative only; assumes monthly compounding.
+     ============================================================ */
+  function initCalculators(){
+    var sipForm = $('sipForm');
+    var retForm = $('retForm');
+    if(!sipForm && !retForm) return;
+
+    var inr = new Intl.NumberFormat('en-IN', { style:'currency', currency:'INR', maximumFractionDigits:0 });
+    function money(n){ if(!isFinite(n)) n = 0; return inr.format(Math.max(0, Math.round(n))); }
+    function num(id){ var el = $(id); var v = el ? parseFloat(el.value) : 0; return isFinite(v) ? v : 0; }
+
+    /* Monthly investing with an annual step-up and an optional annual
+       partial withdrawal taken at each year-end from the start year on. */
+    function simulate(o){
+      var years = Math.max(0, Math.floor(o.years || 0));
+      var stepup = o.stepup || 0;
+      var withdraw = o.withdraw || 0;
+      var withdrawStart = Math.max(1, Math.floor(o.withdrawStart || 1));
+      var r = (o.rate || 0) / 100 / 12;
+      var balance = o.lump || 0;
+      var invested = o.lump || 0;
+      var withdrawn = 0;
+
+      for(var y = 1; y <= years; y++){
+        var monthly = (o.monthly || 0) * Math.pow(1 + stepup / 100, y - 1);
+        for(var m = 0; m < 12; m++){
+          balance = balance * (1 + r) + monthly;
+          invested += monthly;
+        }
+        if(withdraw > 0 && y >= withdrawStart){
+          var take = Math.min(withdraw, balance);
+          balance -= take;
+          withdrawn += take;
+        }
+      }
+      return { invested: invested, withdrawn: withdrawn, value: balance };
+    }
+
+    function renderSip(){
+      var res = simulate({
+        monthly: num('sipAmount'), rate: num('sipReturn'), years: num('sipYears'),
+        stepup: num('sipStepup'), withdraw: num('sipWithdraw'), withdrawStart: num('sipWithdrawStart')
+      });
+      $('sipMaturity').textContent = money(res.value);
+      $('sipInvested').textContent = money(res.invested);
+      $('sipGain').textContent = money(res.value + res.withdrawn - res.invested);
+      var wRow = $('sipWithdrawnRow');
+      if(res.withdrawn > 0){ wRow.hidden = false; $('sipWithdrawn').textContent = money(res.withdrawn); }
+      else { wRow.hidden = true; }
+    }
+
+    function renderRet(){
+      var base = {
+        lump: num('retLump'), monthly: num('retSip'), years: num('retYears'),
+        withdraw: num('retWithdraw'), withdrawStart: num('retWithdrawStart')
+      };
+      var rows = [
+        { rate: num('retLow'),  pct:'retLowPct',  val:'retLowVal' },
+        { rate: num('retMid'),  pct:'retMidPct',  val:'retMidVal' },
+        { rate: num('retHigh'), pct:'retHighPct', val:'retHighVal' }
+      ];
+      var invested = 0, withdrawn = 0;
+      rows.forEach(function(s, i){
+        var o = {}; for(var k in base){ o[k] = base[k]; } o.rate = s.rate;
+        var res = simulate(o);
+        $(s.pct).textContent = (isFinite(s.rate) ? s.rate : 0) + '%';
+        $(s.val).textContent = money(res.value);
+        if(i === 1){ invested = res.invested; withdrawn = res.withdrawn; }
+      });
+      $('retInvested').textContent = money(invested);
+      var wRow = $('retWithdrawnRow');
+      if(withdrawn > 0){ wRow.hidden = false; $('retWithdrawn').textContent = money(withdrawn); }
+      else { wRow.hidden = true; }
+    }
+
+    if(sipForm){ sipForm.addEventListener('input', renderSip); renderSip(); }
+    if(retForm){ retForm.addEventListener('input', renderRet); renderRet(); }
+  }
+
   /* -------- Year -------- */
   var yearEl = $('year');
   if(yearEl) yearEl.textContent = new Date().getFullYear();
@@ -517,4 +599,5 @@
   observeReveals(document);
   renderComplaintsData();
   initResourceFilters();
+  initCalculators();
 })();

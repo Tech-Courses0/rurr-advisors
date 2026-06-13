@@ -6,14 +6,16 @@ description: "RURR Advisors is a SEBI Registered Investment Adviser offering fee
 <section class="page active" id="page-home">
   <!-- HERO -->
   <div class="hero">
+    <span class="hero-ring r1" aria-hidden="true"></span>
+    <span class="hero-ring r2" aria-hidden="true"></span>
     <div class="wrap hero-inner">
       <div>
-        <p class="eyebrow on-dark reveal" style="--d:0">SEBI Registered Investment Adviser</p>
+        <p class="eyebrow reveal" style="--d:0">SEBI Registered Investment Adviser</p>
         <h1 class="reveal" style="--d:1">Advice you can <em>hold to account.</em></h1>
         <p class="lead reveal" style="--d:2">RURR Advisors is a fee-only, fiduciary investment adviser. We are paid by you, not by the products we recommend — so our guidance stays aligned with your goals.</p>
         <div class="hero-actions reveal" style="--d:3">
           <a class="btn btn-primary" href="/contact/">Schedule a consultation <span class="arr">→</span></a>
-          <a class="btn btn-ghost on-dark" href="/services/">Explore services</a>
+          <a class="btn btn-ghost" href="/services/">Explore services</a>
         </div>
         <p class="hero-note reveal" style="--d:4">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2 4 6v6c0 4.5 3.4 7.6 8 9 4.6-1.4 8-4.5 8-9V6z"/></svg>
@@ -21,9 +23,11 @@ description: "RURR Advisors is a SEBI Registered Investment Adviser offering fee
         </p>
       </div>
 
-      <!-- SEBI credential card — signature element -->
-      <div class="reveal reveal-right cred-wrap" style="--d:2">
-        <aside class="credential float" aria-label="SEBI registration credential">
+      <!-- SEBI credential card — a single rich navy "document" anchoring the hero -->
+      <div class="reveal reveal-right cred-wrap" style="--d:2;position:relative;padding:11px;">
+        <span class="corner bl" aria-hidden="true"></span>
+        <span class="corner tr" aria-hidden="true"></span>
+        <aside class="credential" aria-label="SEBI registration credential">
           <div class="cred-top">
             <div>
               <p class="cred-label">Registered with SEBI</p>
@@ -90,42 +94,61 @@ description: "RURR Advisors is a SEBI Registered Investment Adviser offering fee
       <p class="eyebrow">What we do</p>
       <h2>Advisory services, structured around your goals.</h2>
     </div>
-    <div class="cards">
-      <article class="card reveal">
-        <div class="card-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 11H5a2 2 0 0 0-2 2v6h6m0-8V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v6m-6 0h6m0 0h4a2 2 0 0 1 2 2v6h-6m0-8v8"/></svg></div>
-        <p class="num">01</p>
-        <h3>Financial Planning</h3>
-        <p>A written plan covering cash flow, goals, protection, and retirement — your complete financial picture in one place.</p>
-      </article>
-      <article class="card reveal">
-        <div class="card-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-3 3"/></svg></div>
-        <p class="num">02</p>
-        <h3>Investment Advisory</h3>
-        <p>Independent, research-backed recommendations on asset allocation, mutual funds, and portfolio strategy.</p>
-      </article>
-      <article class="card reveal">
-        <div class="card-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg></div>
-        <p class="num">03</p>
-        <h3>Portfolio Review</h3>
-        <p>A clear-eyed analysis of what you already hold, with risk assessment and practical optimisation suggestions.</p>
-      </article>
-      <article class="card reveal">
-        <div class="card-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><path d="M12 3v9l6 3"/></svg></div>
-        <p class="num">04</p>
-        <h3>Asset Allocation</h3>
-        <p>A disciplined allocation framework matched to your risk profile, time horizon, and liquidity needs.</p>
-      </article>
-      <article class="card reveal">
-        <div class="card-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="1"/><path d="M12 7v2m0 6v2m5-5h-2M9 12H7"/></svg></div>
-        <p class="num">05</p>
-        <h3>Goal-Based Planning</h3>
-        <p>Funding plans for the things that matter — education, a home, retirement — tracked and reviewed over time.</p>
-      </article>
-      <article class="card reveal" style="background:var(--ink);color:var(--paper-dark-text);border-color:var(--ink);display:flex;flex-direction:column;justify-content:center;">
-        <h3 style="color:#fff">Not sure where to start?</h3>
-        <p style="color:#b9c6c1">Begin with a no-obligation conversation about your situation and what you're trying to achieve.</p>
-        <a class="btn btn-ghost on-dark" href="/contact/" style="margin-top:14px;align-self:flex-start;">Talk to an adviser →</a>
-      </article>
+    <div class="bento">
+      <a class="bento-card feature col2 row2 reveal" href="/services/">
+        <span class="reveal-rule"></span>
+        <div>
+          <div class="bento-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M9 11H5a2 2 0 0 0-2 2v6h6m0-8V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v6m-6 0h6m0 0h4a2 2 0 0 1 2 2v6h-6m0-8v8"/></svg></div>
+          <p class="bento-eyebrow">Financial Planning</p>
+          <h3>A written plan for your whole financial life.</h3>
+          <p>Cash flow, goals, protection and retirement — your complete financial picture in one place, reviewed as life changes.</p>
+        </div>
+        <span class="bento-more">Explore services <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </a>
+
+      <a class="bento-card col2 reveal" href="/services/">
+        <span class="reveal-rule"></span>
+        <div>
+          <div class="bento-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-3 3"/></svg></div>
+          <p class="bento-eyebrow">Investment Advisory</p>
+          <h3>Independent, research-backed recommendations.</h3>
+          <p>Asset allocation, mutual funds and portfolio strategy — advised, never sold.</p>
+        </div>
+      </a>
+
+      <a class="bento-card reveal" href="/services/">
+        <span class="reveal-rule"></span>
+        <div>
+          <div class="bento-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg></div>
+          <p class="bento-eyebrow">Portfolio Review</p>
+          <h3>A clear-eyed look at what you hold.</h3>
+        </div>
+      </a>
+
+      <a class="bento-card reveal" href="/services/">
+        <span class="reveal-rule"></span>
+        <div>
+          <div class="bento-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><path d="M12 3v9l6 3"/></svg></div>
+          <p class="bento-eyebrow">Asset Allocation</p>
+          <h3>A framework matched to your risk.</h3>
+        </div>
+      </a>
+
+      <a class="bento-card col2 reveal" href="/services/">
+        <span class="reveal-rule"></span>
+        <div>
+          <div class="bento-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="1"/><path d="M12 7v2m0 6v2m5-5h-2M9 12H7"/></svg></div>
+          <p class="bento-eyebrow">Goal-Based Planning</p>
+          <h3>Funding the things that matter.</h3>
+          <p>Education, a home, retirement — planned, tracked and reviewed over time.</p>
+        </div>
+      </a>
+
+      <div class="bento-card col2 reveal" style="justify-content:center;">
+        <h3 style="font-size:1.5rem;">Not sure where to start?</h3>
+        <p style="margin-top:.4rem;">Begin with a no-obligation conversation about your situation and what you're trying to achieve.</p>
+        <a class="btn btn-primary" href="/contact/" style="margin-top:20px;align-self:flex-start;">Talk to an adviser <span class="arr">→</span></a>
+      </div>
     </div>
   </div>
 
@@ -134,13 +157,15 @@ description: "RURR Advisors is a SEBI Registered Investment Adviser offering fee
     <div class="wrap">
       <div class="section-head reveal">
         <p class="eyebrow on-dark">How we work</p>
-        <h2>A clear, four-step engagement.</h2>
+        <h2>A clear, step-by-step engagement.</h2>
       </div>
-      <div class="steps">
+      <div class="steps steps-6">
         <div class="step reveal"><p class="n">Step 01</p><h3>Understand your goals</h3><p>We start by listening — your priorities, obligations, and what financial success looks like to you.</p></div>
         <div class="step reveal"><p class="n">Step 02</p><h3>Risk profiling</h3><p>A structured assessment of your capacity and willingness to take risk, documented for the record.</p></div>
-        <div class="step reveal"><p class="n">Step 03</p><h3>Personalised advisory</h3><p>A written set of recommendations tailored to your plan — explained in plain language, never sold.</p></div>
-        <div class="step reveal"><p class="n">Step 04</p><h3>Periodic review</h3><p>Scheduled reviews to keep your plan aligned as markets, goals, and life circumstances change.</p></div>
+        <div class="step reveal"><p class="n">Step 03</p><h3>Discussion &amp; initial recommendation</h3><p>We discuss your situation in depth and share an initial recommendation for you to react to and refine.</p></div>
+        <div class="step reveal"><p class="n">Step 04</p><h3>Personalised advisory</h3><p>A written set of recommendations tailored to your plan — explained in plain language, never sold.</p></div>
+        <div class="step reveal"><p class="n">Step 05</p><h3>Finalising the plan</h3><p>We refine the allocation, products, and priorities with you until the plan is agreed and documented.</p></div>
+        <div class="step reveal"><p class="n">Step 06</p><h3>Implementing the plan</h3><p>We help you put the agreed plan into action and stay alongside you as markets and life change.</p></div>
       </div>
     </div>
   </div>

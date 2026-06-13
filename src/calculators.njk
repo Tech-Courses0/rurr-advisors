@@ -1,0 +1,140 @@
+---
+layout: base.njk
+metaTitle: "Calculators — RURR Advisors"
+description: "Free SIP and investment return calculators from RURR Advisors — model step-up SIPs, varying return scenarios, and partial withdrawals. For illustration only."
+---
+<section class="page active" id="page-calculators">
+  <div class="page-head">
+    <div class="wrap">
+      <p class="crumb reveal">Tools</p>
+      <h1 class="reveal">Calculators</h1>
+      <p class="reveal">Model how disciplined investing can compound over time — step-up SIPs, varying return assumptions, and partial withdrawals. These are planning aids, not predictions.</p>
+    </div>
+  </div>
+
+  <div class="section wrap">
+    <div class="note reveal" style="margin-bottom:40px;">
+      <strong>For illustration only.</strong> The return figures you enter are assumptions, not forecasts — actual returns vary and are <strong>not guaranteed</strong>. Investments in securities and mutual funds are subject to market risks. Nothing here constitutes investment advice or a promise of returns.
+    </div>
+
+    <!-- ============ SIP CALCULATOR ============ -->
+    <article class="calc reveal" id="sipCalc">
+      <div class="calc-head">
+        <p class="eyebrow">SIP Calculator</p>
+        <h2>What your monthly SIP could grow to.</h2>
+        <p class="calc-sub">Add an optional annual step-up and a partial withdrawal to model a more realistic plan.</p>
+      </div>
+      <div class="calc-grid">
+        <form class="calc-inputs" id="sipForm" autocomplete="off">
+          <div class="field">
+            <label for="sipAmount">Monthly investment (₹)</label>
+            <input type="number" id="sipAmount" inputmode="numeric" min="0" step="500" value="10000">
+          </div>
+          <div class="field">
+            <label for="sipReturn">Expected return (% per year)</label>
+            <input type="number" id="sipReturn" inputmode="decimal" min="0" max="40" step="0.5" value="12">
+          </div>
+          <div class="field">
+            <label for="sipYears">Investment period (years)</label>
+            <input type="number" id="sipYears" inputmode="numeric" min="1" max="50" step="1" value="15">
+          </div>
+          <div class="field">
+            <label for="sipStepup">Annual step-up (%) <span class="opt">optional</span></label>
+            <input type="number" id="sipStepup" inputmode="decimal" min="0" max="50" step="1" value="0">
+          </div>
+          <div class="field">
+            <label for="sipWithdraw">Partial withdrawal (₹ per year) <span class="opt">optional</span></label>
+            <input type="number" id="sipWithdraw" inputmode="numeric" min="0" step="1000" value="0">
+          </div>
+          <div class="field">
+            <label for="sipWithdrawStart">Withdrawals start after (years) <span class="opt">optional</span></label>
+            <input type="number" id="sipWithdrawStart" inputmode="numeric" min="1" max="50" step="1" value="10">
+          </div>
+        </form>
+
+        <div class="calc-result" id="sipResult" aria-live="polite">
+          <p class="calc-result-label">Estimated value at maturity</p>
+          <p class="calc-figure" id="sipMaturity">—</p>
+          <dl class="calc-rows">
+            <div class="calc-row"><dt>Total invested</dt><dd id="sipInvested">—</dd></div>
+            <div class="calc-row" id="sipWithdrawnRow" hidden><dt>Total withdrawn</dt><dd id="sipWithdrawn">—</dd></div>
+            <div class="calc-row"><dt>Wealth gain</dt><dd id="sipGain">—</dd></div>
+          </dl>
+          <p class="calc-foot">Assumes monthly investing and monthly compounding at the rate you entered. Step-up applies once a year.</p>
+        </div>
+      </div>
+    </article>
+
+    <!-- ============ RETURN CALCULATOR ============ -->
+    <article class="calc reveal" id="retCalc">
+      <div class="calc-head">
+        <p class="eyebrow">Return Calculator</p>
+        <h2>The same plan under different return assumptions.</h2>
+        <p class="calc-sub">Combine a lumpsum and an SIP, then compare conservative, moderate, and aggressive outcomes side by side.</p>
+      </div>
+      <div class="calc-grid">
+        <form class="calc-inputs" id="retForm" autocomplete="off">
+          <div class="field">
+            <label for="retLump">Initial lumpsum (₹) <span class="opt">optional</span></label>
+            <input type="number" id="retLump" inputmode="numeric" min="0" step="10000" value="100000">
+          </div>
+          <div class="field">
+            <label for="retSip">Monthly SIP (₹) <span class="opt">optional</span></label>
+            <input type="number" id="retSip" inputmode="numeric" min="0" step="500" value="10000">
+          </div>
+          <div class="field">
+            <label for="retYears">Period (years)</label>
+            <input type="number" id="retYears" inputmode="numeric" min="1" max="50" step="1" value="15">
+          </div>
+          <div class="field calc-field-3">
+            <label>Return scenarios (% per year)</label>
+            <div class="calc-trio">
+              <span><small>Conservative</small><input type="number" id="retLow" inputmode="decimal" min="0" max="40" step="0.5" value="8"></span>
+              <span><small>Moderate</small><input type="number" id="retMid" inputmode="decimal" min="0" max="40" step="0.5" value="10"></span>
+              <span><small>Aggressive</small><input type="number" id="retHigh" inputmode="decimal" min="0" max="40" step="0.5" value="12"></span>
+            </div>
+          </div>
+          <div class="field">
+            <label for="retWithdraw">Partial withdrawal (₹ per year) <span class="opt">optional</span></label>
+            <input type="number" id="retWithdraw" inputmode="numeric" min="0" step="1000" value="0">
+          </div>
+          <div class="field">
+            <label for="retWithdrawStart">Withdrawals start after (years) <span class="opt">optional</span></label>
+            <input type="number" id="retWithdrawStart" inputmode="numeric" min="1" max="50" step="1" value="10">
+          </div>
+        </form>
+
+        <div class="calc-result" id="retResult" aria-live="polite">
+          <table class="data-table calc-table">
+            <caption>Projected maturity value</caption>
+            <thead>
+              <tr><th>Scenario</th><th>Return</th><th>Maturity value</th></tr>
+            </thead>
+            <tbody id="retTableBody">
+              <tr><td>Conservative</td><td class="num" id="retLowPct">—</td><td class="num" id="retLowVal">—</td></tr>
+              <tr><td>Moderate</td><td class="num" id="retMidPct">—</td><td class="num" id="retMidVal">—</td></tr>
+              <tr><td>Aggressive</td><td class="num" id="retHighPct">—</td><td class="num" id="retHighVal">—</td></tr>
+            </tbody>
+          </table>
+          <dl class="calc-rows">
+            <div class="calc-row"><dt>Total invested</dt><dd id="retInvested">—</dd></div>
+            <div class="calc-row" id="retWithdrawnRow" hidden><dt>Total withdrawn</dt><dd id="retWithdrawn">—</dd></div>
+          </dl>
+          <p class="calc-foot">The lumpsum is invested at the start; the SIP is added monthly. All amounts compound monthly at each scenario's rate.</p>
+        </div>
+      </div>
+    </article>
+  </div>
+
+  <!-- CTA -->
+  <div class="section wrap" style="padding-top:0;">
+    <div class="cta-band reveal">
+      <h2>Numbers are a start. A plan is the rest.</h2>
+      <p>A calculator can't profile your risk, your goals, or your taxes. Let's turn these projections into a written, personalised plan.</p>
+      <div class="hero-actions" style="justify-content:center;">
+        <a class="btn btn-primary" href="/contact/">Schedule a consultation</a>
+        <a class="btn btn-ghost" href="/services/">See all services</a>
+      </div>
+    </div>
+  </div>
+</section>

@@ -45,6 +45,19 @@ description: "About RURR Advisors — a SEBI Registered Investment Adviser provi
     </div>
   </div>
 
+  <!-- Registrations & certifications (firm) -->
+  <div class="section wrap" style="padding-top:0;">
+    <div class="section-head reveal">
+      <p class="eyebrow">Registrations &amp; certifications</p>
+      <h2 style="font-size:clamp(1.8rem,3.6vw,2.4rem)">Credentials of the firm</h2>
+    </div>
+    <dl class="reg-grid reveal">
+      {%- for c in site.certifications %}
+      <div class="reg-cell"><dt>{{ c.label }}</dt><dd>{{ c.value }}</dd></div>
+      {%- endfor %}
+    </dl>
+  </div>
+
   <!-- Principal officer -->
   <div class="section wrap" style="padding-top:0;">
     <div class="section-head reveal">
@@ -58,7 +71,6 @@ description: "About RURR Advisors — a SEBI Registered Investment Adviser provi
           <p>{{ site.principalOfficer.title }}</p>
           <dl style="margin:16px 0 0;display:grid;gap:10px;">
             <div class="cred-row" style="color:var(--text)"><dt style="color:var(--muted-2);font-family:var(--mono);font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;">Qualifications</dt><dd style="font-family:var(--mono);font-size:.85rem;text-align:right;">{{ site.principalOfficer.qualifications }}</dd></div>
-            <div class="cred-row" style="color:var(--text)"><dt style="color:var(--muted-2);font-family:var(--mono);font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;">NISM Certification</dt><dd style="font-family:var(--mono);font-size:.85rem;text-align:right;">{{ site.principalOfficer.nism }}</dd></div>
             <div class="cred-row" style="color:var(--text)"><dt style="color:var(--muted-2);font-family:var(--mono);font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;">Experience</dt><dd style="font-family:var(--mono);font-size:.85rem;text-align:right;">{{ site.principalOfficer.experience }}</dd></div>
           </dl>
         </div>
@@ -80,8 +92,8 @@ description: "About RURR Advisors — a SEBI Registered Investment Adviser provi
           <h2 style="font-size:clamp(1.9rem,4vw,2.6rem);color:#fff">How we think about your money.</h2>
         </div>
         <div class="prose reveal">
-          <p style="color:#cdd6d2">We believe long-term outcomes come from sound structure and patient discipline — not prediction. Our investment philosophy rests on a few principles: define goals before products, control what can be controlled (costs, allocation, behaviour), diversify broadly, and review regularly without overreacting.</p>
-          <p style="color:#cdd6d2">We are deliberately conservative in what we promise. Markets carry risk, and we are honest about it. Our role is to help you take an appropriate amount of risk for your goals — and to stay invested through the noise.</p>
+          <p style="color:#c4cee3">We believe long-term outcomes come from sound structure and patient discipline — not prediction. Our investment philosophy rests on a few principles: define goals before products, control what can be controlled (costs, allocation, behaviour), diversify broadly, and review regularly without overreacting.</p>
+          <p style="color:#c4cee3">We are deliberately conservative in what we promise. Markets carry risk, and we are honest about it. Our role is to help you take an appropriate amount of risk for your goals — and to stay invested through the noise.</p>
         </div>
       </div>
     </div>

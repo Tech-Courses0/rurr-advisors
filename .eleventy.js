@@ -4,6 +4,8 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("src/js");
   eleventyConfig.addPassthroughCopy("src/favicon.svg");
   eleventyConfig.addPassthroughCopy("src/favicon.png");
+  eleventyConfig.addPassthroughCopy("src/logo-mark.png");
+  eleventyConfig.addPassthroughCopy("src/logo-mark@2x.png");
   eleventyConfig.addPassthroughCopy("src/apple-touch-icon.png");
   eleventyConfig.addPassthroughCopy("src/og-image.png");
   eleventyConfig.addPassthroughCopy("src/og-image.svg");

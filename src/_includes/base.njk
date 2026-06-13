@@ -48,7 +48,7 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Hanken+Grotesk:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Libre+Franklin:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="/css/styles.css" />
 
 <script type="application/ld+json">{{ ld | dump | safe }}</script>
@@ -62,7 +62,7 @@
 <header class="site-header" id="header">
   <div class="wrap nav">
     <a class="brand" href="/" aria-label="{{ site.brandName }} home">
-      <span class="mark">{{ site.markLetter }}</span>
+      <img class="mark" src="/logo-mark.png" alt="" width="38" height="38" />
       <span>{{ site.brandName }}<small>{{ site.tagline }}</small></span>
     </a>
     <nav aria-label="Primary">
@@ -73,7 +73,7 @@
       </ul>
     </nav>
     <div class="nav-cta">
-      <a class="btn btn-primary" href="/contact/">Schedule a consultation <span class="arr">→</span></a>
+      <a class="btn btn-primary" href="/contact/">Contact <span class="arr">→</span></a>
       <button class="menu-toggle" id="menuToggle" aria-label="Open menu" aria-expanded="false">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
       </button>
@@ -83,7 +83,7 @@
 
 <div class="mobile-menu" id="mobileMenu">
   <div class="mm-top">
-    <span class="brand"><span class="mark">{{ site.markLetter }}</span><span>{{ site.brandName }}</span></span>
+    <span class="brand"><img class="mark" src="/logo-mark.png" alt="" width="38" height="38" /><span>{{ site.brandName }}</span></span>
     <button class="mm-close" id="mmClose" aria-label="Close menu">
       <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M18 6 6 18M6 6l12 12"/></svg>
     </button>
@@ -93,7 +93,7 @@
     <a href="{{ item.url }}"{% if item.url == page.url %} class="active" aria-current="page"{% endif %}>{{ item.label }}</a>
     {%- endfor %}
   </nav>
-  <div class="mm-cta"><a class="btn btn-primary" href="/contact/">Schedule a consultation →</a></div>
+  <div class="mm-cta"><a class="btn btn-primary" href="/contact/">Contact →</a></div>
 </div>
 
 <main id="main">
@@ -104,11 +104,11 @@
   <div class="wrap">
     <div class="foot-top">
       <div class="foot-brand">
-        <span class="brand"><span class="mark">{{ site.markLetter }}</span><span>{{ site.brandName }}</span></span>
+        <span class="brand"><img class="mark" src="/logo-mark.png" alt="" width="38" height="38" /><span>{{ site.brandName }}</span></span>
         <p class="foot-status">{{ site.tagline }}</p>
         <p class="foot-reg">Registration No: {{ site.regNo }}</p>
         <p class="foot-addr">
-          <strong style="color:#cdd6d2;font-weight:600;">Registered Address</strong><br>
+          <strong style="color:#c4cee3;font-weight:600;">Registered Address</strong><br>
           {{ site.address.line1 }},<br>{{ site.address.line2 }}<br><br>
           Email: <span style="font-family:var(--mono)">{{ site.email | mailto | safe }}</span><br>
           Phone: <span style="font-family:var(--mono)">{{ site.phone | whatsapp | safe }}</span>

@@ -32,7 +32,7 @@
   "principalOfficer": {
     "name": "Rishu Goyal",
     "title": "Proprietor & Investment Adviser",
-    "qualifications": "[CFP / CFA / MBA]",
+    "qualifications": "FIA, B.Com, Insolvency Professional, Registered Valuer (SFA)",
     "nism": "[XA & XB]",
     "experience": "[__ years]"
   },
@@ -45,13 +45,19 @@
   "scores": "scores.sebi.gov.in",
   "odr": "smartodr.in",
 
+  "certifications": [
+    { "label": "SEBI", "value": "SEBI Enlistment Letter" },
+    { "label": "NISM", "value": "NISM Certifications" },
+    { "label": "BSE", "value": "BSE Enlistment" }
+  ],
+
   "nav": [
     { "label": "Home", "url": "/" },
     { "label": "About", "url": "/about/" },
     { "label": "Services", "url": "/services/" },
     { "label": "Resources", "url": "/resources/" },
+    { "label": "Calculators", "url": "/calculators/" },
     { "label": "Disclosures", "url": "/disclosures/" },
-    { "label": "Contact", "url": "/contact/" },
     { "label": "Grievances", "url": "/grievances/" }
   ],
 

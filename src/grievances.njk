@@ -187,17 +187,17 @@ description: "Raise, track, and resolve investor complaints with RURR Advisors. 
     <div class="officer-grid">
       <div class="contact-info reveal">
         <h3>Compliance Officer</h3>
-        <p style="color:#b9c6c1;font-size:.92rem;">Your first point of contact for any grievance.</p>
+        <p style="color:#b7c2dd;font-size:.92rem;">Your first point of contact for any grievance.</p>
         <div class="info-row"><div class="l">Name</div><div class="d">{{ site.complianceOfficer.name }}</div></div>
         <div class="info-row"><div class="l">Email</div><div class="d" style="font-family:var(--mono);">{{ site.complianceOfficer.email | mailto("grievance") | safe }}</div></div>
         <div class="info-row"><div class="l">Phone</div><div class="d" style="font-family:var(--mono);">{{ site.complianceOfficer.phone | whatsapp("grievance") | safe }}</div></div>
       </div>
       <div class="contact-info reveal" style="background:var(--pine);">
         <h3>Escalation matrix</h3>
-        <p style="color:#b9c6c1;font-size:.92rem;">If your complaint isn't resolved at one level, escalate to the next.</p>
-        <div class="info-row"><div class="l">Level 1 · within 2 working days</div><div class="d">Compliance Officer — {{ site.complianceOfficer.name }}<br><span style="font-family:var(--mono);font-size:.85rem;color:#cdd6d2;">{{ site.complianceOfficer.email | mailto("grievance") | safe }}</span></div></div>
-        <div class="info-row"><div class="l">Level 2 · if unresolved in 21 days</div><div class="d">SEBI SCORES portal<br><span style="font-family:var(--mono);font-size:.85rem;color:#cdd6d2;">{{ site.scores | weblink | safe }}</span></div></div>
-        <div class="info-row"><div class="l">Level 3 · post-SCORES</div><div class="d">Online Dispute Resolution<br><span style="font-family:var(--mono);font-size:.85rem;color:#cdd6d2;">{{ site.odr | weblink | safe }}</span></div></div>
+        <p style="color:#b7c2dd;font-size:.92rem;">If your complaint isn't resolved at one level, escalate to the next.</p>
+        <div class="info-row"><div class="l">Level 1 · within 2 working days</div><div class="d">Compliance Officer — {{ site.complianceOfficer.name }}<br><span style="font-family:var(--mono);font-size:.85rem;color:#c4cee3;">{{ site.complianceOfficer.email | mailto("grievance") | safe }}</span></div></div>
+        <div class="info-row"><div class="l">Level 2 · if unresolved in 21 days</div><div class="d">SEBI SCORES portal<br><span style="font-family:var(--mono);font-size:.85rem;color:#c4cee3;">{{ site.scores | weblink | safe }}</span></div></div>
+        <div class="info-row"><div class="l">Level 3 · post-SCORES</div><div class="d">Online Dispute Resolution<br><span style="font-family:var(--mono);font-size:.85rem;color:#c4cee3;">{{ site.odr | weblink | safe }}</span></div></div>
       </div>
     </div>
   </div>
