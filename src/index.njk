@@ -10,30 +10,35 @@ description: "RURR Advisors is a SEBI Registered Investment Adviser offering fee
     <span class="hero-ring r2" aria-hidden="true"></span>
     <div class="wrap hero-inner">
       <div>
-        <p class="eyebrow reveal" style="--d:0">SEBI Registered Investment Adviser</p>
-        <h1 class="reveal" style="--d:1">Advice you can <em>hold to account.</em></h1>
-        <p class="lead reveal" style="--d:2">RURR Advisors is a fee-only, fiduciary investment adviser. We are paid by you, not by the products we recommend — so our guidance stays aligned with your goals.</p>
-        <div class="hero-actions reveal" style="--d:3">
+        <h1 class="reveal" style="--d:0">Advice you can <em>hold to account.</em></h1>
+        <p class="lead reveal" style="--d:1">RURR Advisors is a fee-only, fiduciary investment adviser. We are paid by you, not by the products we recommend — so our guidance stays aligned with your goals.</p>
+        <div class="hero-actions reveal" style="--d:2">
           <a class="btn btn-primary" href="/contact/">Schedule a consultation <span class="arr">→</span></a>
           <a class="btn btn-ghost" href="/services/">Explore services</a>
         </div>
-        <p class="hero-note reveal" style="--d:4">
+        <p class="hero-note reveal" style="--d:3">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2 4 6v6c0 4.5 3.4 7.6 8 9 4.6-1.4 8-4.5 8-9V6z"/></svg>
           We do not promise or guarantee returns. Investments are subject to market risks.
         </p>
       </div>
 
-      <!-- SEBI credential card — a single rich navy "document" anchoring the hero -->
-      <div class="reveal reveal-right cred-wrap" style="--d:2;position:relative;padding:11px;">
-        <span class="corner bl" aria-hidden="true"></span>
-        <span class="corner tr" aria-hidden="true"></span>
+      <!-- SEBI credential — an engraved navy "certificate" anchoring the hero -->
+      <div class="reveal reveal-right cred-wrap" style="--d:2;position:relative;">
         <aside class="credential" aria-label="SEBI registration credential">
+          <span class="cred-frame" aria-hidden="true"></span>
           <div class="cred-top">
             <div>
               <p class="cred-label">Registered with SEBI</p>
               <p class="cred-title">Investment Adviser</p>
             </div>
-            <div class="cred-seal">SEBI<br>RIA</div>
+            <span class="cred-seal" aria-hidden="true">
+              <svg viewBox="0 0 56 56" fill="none" stroke-linecap="round">
+                <circle cx="28" cy="28" r="25.5" stroke="rgba(173,196,240,.32)" stroke-width="1"/>
+                <circle cx="28" cy="28" r="23" stroke="rgba(86,184,132,.55)" stroke-width="1.1" stroke-dasharray="0.7 3.3"/>
+                <circle cx="28" cy="28" r="18.5" stroke="#56b884" stroke-width="1.1"/>
+                <path d="M20.6 28.4l4.9 4.9 10.3-10.8" stroke="#d6ece1" stroke-width="2.1" stroke-linejoin="round"/>
+              </svg>
+            </span>
           </div>
           <dl class="cred-rows">
             <div class="cred-row"><dt>Registration No.</dt><dd>{{ site.regNo }}</dd></div>
@@ -89,7 +94,8 @@ description: "RURR Advisors is a SEBI Registered Investment Adviser offering fee
   </div>
 
   <!-- SERVICES OVERVIEW -->
-  <div class="section section--tight wrap" style="padding-top:0;">
+  <div class="section section--wash-navy section--seam">
+   <div class="wrap">
     <div class="section-head reveal">
       <p class="eyebrow">What we do</p>
       <h2>Advisory services, structured around your goals.</h2>
@@ -150,6 +156,7 @@ description: "RURR Advisors is a SEBI Registered Investment Adviser offering fee
         <a class="btn btn-primary" href="/contact/" style="margin-top:20px;align-self:flex-start;">Talk to an adviser <span class="arr">→</span></a>
       </div>
     </div>
+   </div>
   </div>
 
   <!-- PROCESS -->
@@ -171,16 +178,18 @@ description: "RURR Advisors is a SEBI Registered Investment Adviser offering fee
   </div>
 
   <!-- WHY CHOOSE US -->
-  <div class="section wrap">
+  <div class="section section--wash-green">
+   <div class="wrap">
     <div class="section-head center reveal">
       <p class="eyebrow center">The difference</p>
       <h2>Built to put your interests first.</h2>
     </div>
     <div class="cards">
-      <article class="card reveal"><h3>Fiduciary approach</h3><p>A legal and ethical duty to recommend what's right for you — not what pays us more.</p></article>
+      <article class="card reveal"><h3>Fiduciary approach</h3><p>A legal and ethical duty to recommend what's right for you, not what pays us more.</p></article>
       <article class="card reveal"><h3>Transparent fees</h3><p>You always know what you pay and why. No bundled costs, no surprises, no hidden charges.</p></article>
       <article class="card reveal"><h3>Research-backed advice</h3><p>Recommendations grounded in evidence and process, not market predictions or hot tips.</p></article>
     </div>
+   </div>
   </div>
 
   <!-- CTA -->

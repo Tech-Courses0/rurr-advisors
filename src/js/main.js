@@ -515,7 +515,10 @@
   function initCalculators(){
     var sipForm = $('sipForm');
     var retForm = $('retForm');
-    if(!sipForm && !retForm) return;
+    var lumpForm = $('lumpForm');
+    var goalForm = $('goalForm');
+    var swpForm = $('swpForm');
+    if(!sipForm && !retForm && !lumpForm && !goalForm && !swpForm) return;
 
     var inr = new Intl.NumberFormat('en-IN', { style:'currency', currency:'INR', maximumFractionDigits:0 });
     function money(n){ if(!isFinite(n)) n = 0; return inr.format(Math.max(0, Math.round(n))); }
@@ -585,8 +588,116 @@
       else { wRow.hidden = true; }
     }
 
+    /* Lumpsum — a one-time investment compounding monthly. */
+    function renderLump(){
+      var res = simulate({ lump: num('lumpAmount'), monthly: 0, rate: num('lumpReturn'), years: num('lumpYears') });
+      $('lumpMaturity').textContent = money(res.value);
+      $('lumpInvested').textContent = money(res.invested);
+      $('lumpGain').textContent = money(res.value - res.invested);
+    }
+
+    /* Goal planner — solve for the monthly SIP that reaches a target.
+       target_future = current*(1+r)^n + SIP * ((1+r)^n - 1)/r   (monthly, end-of-month). */
+    function renderGoal(){
+      var years = Math.max(0, Math.floor(num('goalYears')));
+      var infl = num('goalInfl');
+      var current = num('goalCurrent');
+      var r = num('goalReturn') / 100 / 12;
+      var n = years * 12;
+      var futureGoal = num('goalTarget') * Math.pow(1 + infl / 100, years);
+      var fromLump = current * Math.pow(1 + r, n);
+      var annuity = (r === 0) ? n : (Math.pow(1 + r, n) - 1) / r;
+      var sip = annuity > 0 ? (futureGoal - fromLump) / annuity : 0;
+      var funded = sip <= 0;
+
+      $('goalSip').textContent = funded ? money(0) : money(sip);
+      $('goalToday').textContent = money(num('goalTarget'));
+      $('goalFuture').textContent = money(futureGoal);
+      $('goalFutureRow').hidden = !(infl > 0);
+      $('goalInvested').textContent = money((funded ? 0 : sip) * n + current);
+      $('goalFoot').textContent = funded
+        ? "Your existing savings already reach this goal at the assumed return — no additional SIP needed."
+        : "Assumes monthly investing with monthly compounding. Inflation grows the goal's future cost.";
+    }
+
+    /* Retirement & SWP — accumulate a corpus, then draw a constant monthly income. */
+    function renderSwp(){
+      var corpus = simulate({ lump: num('swpCurrent'), monthly: num('swpSip'), rate: num('swpPre'), years: num('swpYears') }).value;
+      $('swpCorpus').textContent = money(corpus);
+
+      var w = num('swpWithdraw');
+      var rp = num('swpPost') / 100 / 12;
+      $('swpIncomeEcho').textContent = money(w) + ' / mo';
+
+      var lasts;
+      if(w <= 0){
+        lasts = '—';
+      } else if(rp > 0 && corpus * rp >= w){
+        lasts = 'Sustainable indefinitely';
+      } else {
+        var bal = corpus, months = 0, cap = 70 * 12;
+        while(bal > 0 && months < cap){ bal = bal * (1 + rp) - w; months++; }
+        if(months >= cap){
+          lasts = '60+ years';
+        } else {
+          var y = Math.floor(months / 12), m = months % 12;
+          lasts = y + (y === 1 ? ' yr' : ' yrs') + (m ? ' ' + m + ' mo' : '');
+        }
+      }
+      $('swpLasts').textContent = lasts;
+    }
+
     if(sipForm){ sipForm.addEventListener('input', renderSip); renderSip(); }
     if(retForm){ retForm.addEventListener('input', renderRet); renderRet(); }
+    if(lumpForm){ lumpForm.addEventListener('input', renderLump); renderLump(); }
+    if(goalForm){ goalForm.addEventListener('input', renderGoal); renderGoal(); }
+    if(swpForm){ swpForm.addEventListener('input', renderSwp); renderSwp(); }
+  }
+
+  /* -------- Calculator toggle: one connected segmented control with a sliding
+     indicator; one shared space below switches to the active calculator. -------- */
+  function initCalcToggle(){
+    var sw = $('calcSwitch'); if(!sw) return;
+    var tabs = Array.prototype.slice.call(sw.querySelectorAll('.calc-tab'));
+    var ind = sw.querySelector('.calc-tab-ind');
+    if(!tabs.length) return;
+
+    function moveInd(){
+      var active = sw.querySelector('.calc-tab.is-active') || tabs[0];
+      if(ind && active){ ind.style.left = active.offsetLeft + 'px'; ind.style.width = active.offsetWidth + 'px'; }
+    }
+    function select(target){
+      tabs.forEach(function(t){
+        var on = t.getAttribute('data-target') === target;
+        t.classList.toggle('is-active', on);
+        t.setAttribute('aria-selected', on ? 'true' : 'false');
+        t.tabIndex = on ? 0 : -1;
+        var panel = $(t.getAttribute('data-target'));
+        if(panel) panel.hidden = !on;
+      });
+      moveInd();
+      var a = sw.querySelector('.calc-tab.is-active');
+      if(a && a.scrollIntoView){ a.scrollIntoView({ block:'nearest', inline:'nearest' }); }
+    }
+    function activeIndex(){
+      for(var i = 0; i < tabs.length; i++){ if(tabs[i].classList.contains('is-active')) return i; }
+      return 0;
+    }
+
+    tabs.forEach(function(t){ t.addEventListener('click', function(){ select(t.getAttribute('data-target')); }); });
+    sw.addEventListener('keydown', function(e){
+      if(e.key !== 'ArrowRight' && e.key !== 'ArrowLeft') return;
+      e.preventDefault();
+      var i = activeIndex();
+      var n = e.key === 'ArrowRight' ? (i + 1) % tabs.length : (i - 1 + tabs.length) % tabs.length;
+      select(tabs[n].getAttribute('data-target'));
+      tabs[n].focus();
+    });
+
+    moveInd();
+    sw.classList.add('ready');
+    window.addEventListener('resize', moveInd, { passive:true });
+    if(document.fonts && document.fonts.ready){ document.fonts.ready.then(moveInd); }
   }
 
   /* -------- Year -------- */
@@ -600,4 +711,5 @@
   renderComplaintsData();
   initResourceFilters();
   initCalculators();
+  initCalcToggle();
 })();

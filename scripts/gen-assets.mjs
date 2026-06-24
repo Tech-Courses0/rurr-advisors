@@ -1,15 +1,20 @@
 // Generates every brand raster the site needs, from the single source emblem
-// (src/logo-mark.png — the RURR Advisors tree, extracted from the master logo).
+// (src/img/logo-mark.png — the RURR Advisors tree, extracted from the master
+// logo in brand/logo-rurr-advisors.jpg).
 //   • favicon.svg            crisp vector wrapper around the emblem (browser tabs)
 //   • favicon.png  (32)      PNG fallback
 //   • apple-touch-icon (180) iOS home-screen (full-bleed; iOS rounds it)
-//   • og-image.svg / .png    1200×630 social card in the navy + green palette
+//   • og-image.png           1200×630 social card in the navy + green palette
+// Shipped rasters are written to src/img/; the editable OG source SVG and the
+// 2x emblem master live in brand/ (source art, not deployed).
 // Run with: npm run gen:assets
 import sharp from "sharp";
 import { readFileSync, writeFileSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 
-const src = (p) => fileURLToPath(new URL(`../src/${p}`, import.meta.url));
+// img() -> shipped rasters in src/img/ ; brand() -> source masters in brand/
+const img = (p) => fileURLToPath(new URL(`../src/img/${p}`, import.meta.url));
+const brand = (p) => fileURLToPath(new URL(`../brand/${p}`, import.meta.url));
 
 // brand tokens (mirror of the CSS :root palette)
 const NAVY = "#0f2150";
@@ -17,8 +22,8 @@ const NAVY2 = "#16285f";
 const GREEN = "#5cc483";
 const LIGHT = "#b7c2dd";
 
-const emblem = readFileSync(src("logo-mark.png"));        // 256px, tree on white
-const emblem2x = readFileSync(src("logo-mark@2x.png"));   // 512px master
+const emblem = readFileSync(img("logo-mark.png"));        // 256px, tree on white
+const emblem2x = readFileSync(brand("logo-mark@2x.png")); // 512px master
 const emblem64 = emblem.toString("base64");
 
 /* ---- favicon.svg : emblem on a white rounded tile (matches the PNG) -------- */
@@ -26,7 +31,7 @@ const faviconSvg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" 
   <rect x="1" y="1" width="62" height="62" rx="14" fill="#ffffff" stroke="${NAVY}" stroke-opacity="0.12"/>
   <image x="5" y="5" width="54" height="54" href="data:image/png;base64,${emblem64}"/>
 </svg>`;
-writeFileSync(src("favicon.svg"), faviconSvg);
+writeFileSync(img("favicon.svg"), faviconSvg);
 
 /* ---- favicon.png / apple-touch : emblem composited on a white square -------- */
 async function tile(size, out, pad) {
@@ -40,8 +45,8 @@ async function tile(size, out, pad) {
     .png()
     .toFile(out);
 }
-await tile(32, src("favicon.png"), 0.06);
-await tile(180, src("apple-touch-icon.png"), 0.12);
+await tile(32, img("favicon.png"), 0.06);
+await tile(180, img("apple-touch-icon.png"), 0.12);
 
 /* ---- og-image : navy card, white logo coin, wordmark ----------------------- */
 function ogSvg(embed) {
@@ -67,11 +72,11 @@ function ogSvg(embed) {
   <text x="494" y="450" font-family="Consolas, 'Courier New', monospace" font-size="21" fill="${GREEN}" letter-spacing="3">SEBI REGISTERED INVESTMENT ADVISER</text>
 </svg>`;
 }
-// keep an editable, faithful source (emblem embedded)
-writeFileSync(src("og-image.svg"), ogSvg(true));
+// keep an editable, faithful source (emblem embedded) in brand/ — not shipped
+writeFileSync(brand("og-image.svg"), ogSvg(true));
 // build the PNG by compositing the real emblem onto the rasterised card (robust)
 const ogRaster = await sharp(Buffer.from(ogSvg(false))).resize(1200, 630).png().toBuffer();
 const coin = await sharp(emblem).resize(248, 248, { fit: "contain", background: "#ffffff" }).png().toBuffer();
-await sharp(ogRaster).composite([{ input: coin, left: 112, top: 191 }]).png().toFile(src("og-image.png"));
+await sharp(ogRaster).composite([{ input: coin, left: 112, top: 191 }]).png().toFile(img("og-image.png"));
 
-console.log("Generated favicon.svg, favicon.png, apple-touch-icon.png, og-image.svg, og-image.png");
+console.log("Generated src/img/{favicon.svg,favicon.png,apple-touch-icon.png,og-image.png} and brand/og-image.svg");

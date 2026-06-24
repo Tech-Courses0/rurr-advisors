@@ -8,7 +8,7 @@ detail comes from **one** data file.
 ## Structure
 
 ```
-sebi-ria-website/
+RURRadvisors.com/
 ├── src/
 │   ├── _data/site.json        # SINGLE source of truth — firm name, reg no, address, emails, fees, nav…
 │   ├── _includes/base.njk     # Shared layout: <head> (SEO/OG/JSON-LD/favicon), header, mobile menu, footer
@@ -26,10 +26,11 @@ sebi-ria-website/
 │   ├── 404.njk
 │   ├── sitemap.njk            # → /sitemap.xml (auto-generated from pages)
 │   ├── robots.njk             # → /robots.txt
-│   ├── favicon.svg / og-image.svg   # brand source art
+│   ├── img/                   # Shipped brand rasters — deploy to web root (/favicon.png, /logo-mark.png …)
 │   ├── css/styles.css
 │   └── js/main.js             # reveal animations, mobile menu, form → API wiring
-├── scripts/gen-assets.mjs     # rasterises the SVGs → favicon.png / apple-touch-icon.png / og-image.png
+├── brand/                     # Source art (NOT deployed): logo master, 2x emblem, editable og-image.svg
+├── scripts/gen-assets.mjs     # rasterises the emblem → src/img/{favicon,apple-touch-icon,og-image}…
 ├── .eleventy.js               # Eleventy config (input src/, output _site/)
 └── _site/                     # BUILD OUTPUT — this is what you deploy (git-ignored)
 ```
@@ -60,8 +61,9 @@ build command `npm run build` and publish directory `_site`.
 - **Per-page copy:** the matching `src/*.njk` / `src/legal/*.njk` file.
 - **Navigation:** the `nav` array in `site.json` (drives header + mobile menu;
   the active link is highlighted automatically).
-- **Brand art:** edit `src/favicon.svg` / `src/og-image.svg`, then run
-  `npm run gen:assets` to regenerate the PNGs.
+- **Brand art:** the emblem source is `src/img/logo-mark.png` (+ `brand/logo-mark@2x.png`
+  master); the full logo lives at `brand/logo-rurr-advisors.jpg`. After changing the
+  emblem, run `npm run gen:assets` to regenerate the favicon, touch icon and OG card.
 
 ## Forms → Google Sheet via Apps Script (action required)
 

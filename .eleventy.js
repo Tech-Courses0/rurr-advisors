@@ -2,13 +2,9 @@ module.exports = function (eleventyConfig) {
   // Static assets copied through untouched.
   eleventyConfig.addPassthroughCopy("src/css");
   eleventyConfig.addPassthroughCopy("src/js");
-  eleventyConfig.addPassthroughCopy("src/favicon.svg");
-  eleventyConfig.addPassthroughCopy("src/favicon.png");
-  eleventyConfig.addPassthroughCopy("src/logo-mark.png");
-  eleventyConfig.addPassthroughCopy("src/logo-mark@2x.png");
-  eleventyConfig.addPassthroughCopy("src/apple-touch-icon.png");
-  eleventyConfig.addPassthroughCopy("src/og-image.png");
-  eleventyConfig.addPassthroughCopy("src/og-image.svg");
+  // Brand rasters (favicon, touch icon, OG card, logo mark) live in src/img/
+  // and deploy to the web root, so references stay /favicon.png, /logo-mark.png, …
+  eleventyConfig.addPassthroughCopy({ "src/img": "/" });
 
   // Watch the stylesheet/script during `npm start`.
   eleventyConfig.addWatchTarget("src/css/");

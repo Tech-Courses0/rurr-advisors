@@ -39,7 +39,7 @@ grouped by type; **🔴 = blocking before go-live**, 🟡 = important, ⚪ = opt
 - 🟡 Periodically confirm confirmation emails are arriving at rurradvisors@gmail.com (watch the Gmail ~100 emails/day limit; set `SEND_ACK_EMAILS = false` in `Code.gs` if needed).
 
 ## 6. Optional / nice-to-have
-- ⚪ Replace the generated favicon / OG image (the "R" mark in `src/favicon.svg` and `src/og-image.svg`) with a real logo if you have one, then `npm run gen:assets`.
+- ✅ Real logo wired in: the tree mark is extracted (centred, square) from the master `brand/logo-rurr-advisors.jpg` into `src/img/logo-mark.png` and drives the header/footer mark, favicon and OG card. The mark now sits in a rounded-square tile (works on light + navy). Re-extract via the snippet in `scripts/` + `npm run gen:assets` if the master changes.
 - ⚪ Make displayed phone numbers tap-to-call (`tel:` links).
 - ⚪ Add privacy-friendly analytics (e.g. Plausible) if you want visitor stats.
 - ⚪ The complaints tables render via JavaScript (live). If you want the figures present for no-JS crawlers too, add a build-time snapshot fallback.

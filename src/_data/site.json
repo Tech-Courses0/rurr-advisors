@@ -58,7 +58,7 @@
     { "label": "Resources", "url": "/resources/" },
     { "label": "Calculators", "url": "/calculators/" },
     { "label": "Disclosures", "url": "/disclosures/" },
-    { "label": "Grievances", "url": "/grievances/" }
+    { "label": "Grievances", "url": "/contact/#grievances" }
   ],
 
   "forms": {
